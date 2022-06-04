@@ -1,3 +1,6 @@
+'''
+There are 6 solutions to this problem mentioned in leetcode, this is the 7th solution.
+'''
 class Solution:
     
     def __init__(self):
