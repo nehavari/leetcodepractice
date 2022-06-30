@@ -1,5 +1,5 @@
 """
-There are easier solutions however this one guaranteed to be run in O(n) time complexity even in worst case.
+There are easier solutions however this one guarantees to be run in O(n) time complexity even in worst case.
 Space complexity is O(n) to keep medianSet array.
 """
 class Solution:
