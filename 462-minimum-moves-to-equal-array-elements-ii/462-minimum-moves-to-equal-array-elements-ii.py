@@ -1,3 +1,7 @@
+"""
+There are easier solution than however this one guaranteed to be run in O(n) time complexity even in worst case.
+Space complexity is O(n) to keep medianSet array.
+"""
 class Solution:
     
     def partition(self, nums, pivot):
@@ -34,7 +38,6 @@ class Solution:
         else:
             return self.medianOfMedian(nums[pivotIndex+1:len(nums)], medianIndex-pivotIndex-1)
         
-        
     def minMoves2(self, nums: List[int]) -> int:
         length = len(nums)
         medianIndex = (length - 1) // 2
@@ -44,4 +47,3 @@ class Solution:
             distance += abs(median - num)
             
         return distance
-        
