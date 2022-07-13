@@ -7,6 +7,7 @@
 """
 O(n) -- time complexity
 O(n) -- space complexity
+Morris preorder traversal in python, simpler code
 """
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
