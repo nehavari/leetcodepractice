@@ -1,18 +1,21 @@
 import heapq
+from collections import defaultdict
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
-        row_to_soldiers = {}
+        soldier_count_per_row = defaultdict(list)
         for row in range(len(mat)):
+            count = 0
             for col in range(len(mat[0])):
-                row_to_soldiers[row] = row_to_soldiers.get(row, 0) + mat[row][col]
-                
-        soldiers_count = list(row_to_soldiers.values())
+                if mat[row][col] == 0:
+                    break
+                count += 1
+            soldier_count_per_row[count].append(row)
+                    
+        soldiers_count = list(soldier_count_per_row.keys())
         k_smallest = heapq.nsmallest(k, soldiers_count)
         
         answer = []
-        for key, value in row_to_soldiers.items():
-            if value in k_smallest:
-                answer.append((key, value))
-        answer.sort(key=lambda num: (num[1], num[0]))
-        
-        return [num[0] for num in answer[:k]]
+        for key in k_smallest:
+            answer.extend(soldier_count_per_row[key])
+            
+        return answer[:k]
